@@ -9,7 +9,7 @@ using System.Linq;
 using System.Collections.Generic;
 public class Solution
 {
-    // 自己实现
+    // 自己实现 贪心
     public int MaxSubArray(int[] nums)
     {
         if (nums.Length == 1) return nums[0];
@@ -36,6 +36,19 @@ public class Solution
             }
 
             if (tempVal > maxVal) maxVal = tempVal;
+        }
+        return maxVal;
+    }
+
+    // 贪心
+    public int MaxSubArray(int[] nums)
+    {
+        int pre = 0;
+        int maxVal = nums[0];
+        foreach(int x in nums)
+        {
+            pre = Math.Max(pre + x,x);
+            maxVal = Math.Max(maxVal,pre);
         }
         return maxVal;
     }
