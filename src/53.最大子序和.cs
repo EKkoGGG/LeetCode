@@ -45,12 +45,25 @@ public class Solution
     {
         int pre = 0;
         int maxVal = nums[0];
-        foreach(int x in nums)
+        foreach (int x in nums)
         {
-            pre = Math.Max(pre + x,x);
-            maxVal = Math.Max(maxVal,pre);
+            pre = Math.Max(pre + x, x);
+            maxVal = Math.Max(maxVal, pre);
         }
         return maxVal;
+    }
+
+    // 动态规划
+    public int MaxSubArray(int[] nums)
+    {
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (nums[i - 1] > 0)
+            {
+                nums[i] += nums[i - 1];
+            }
+        }
+        return nums.Max();
     }
 }
 // @lc code=end
