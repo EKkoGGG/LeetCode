@@ -38,9 +38,10 @@ public class Solution
     // 迭代
     public bool IsSymmetric(TreeNode root)
     {
+        if (root == null) return false;
         Queue<TreeNode> q = new Queue<TreeNode>();
-        q.Enqueue(root);
-        q.Enqueue(root);
+        q.Enqueue(root.left);
+        q.Enqueue(root.right);
         while (q.Count != 0)
         {
             TreeNode t1 = q.Dequeue();
