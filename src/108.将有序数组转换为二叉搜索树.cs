@@ -22,7 +22,17 @@ public class Solution
 {
     public TreeNode SortedArrayToBST(int[] nums)
     {
+        return CreateBST(nums, 0, nums.Length - 1);
+    }
 
+    public TreeNode CreateBST(int[] nums, int start, int end)
+    {
+        if (start > end) return null;
+        int mid = (start + end) / 2;
+        var node = new TreeNode(nums[mid]);
+        node.left = CreateBST(nums, start, mid - 1);
+        node.right = CreateBST(nums, mid + 1, end);
+        return node;
     }
 }
 // @lc code=end
