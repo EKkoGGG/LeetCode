@@ -39,10 +39,35 @@ public class Solution
         return maxKey;
     }
 
-    // 位运算
+    // 排序
     public int MajorityElement(int[] nums)
     {
-        
+        Array.Sort(nums);
+        return nums[nums.Length / 2];
+    }
+
+    // 摩尔投票法
+    public int MajorityElement(int[] nums)
+    {
+        var card_num = nums[0];
+        var count = 1;
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (count == 0)
+            {
+                card_num = nums[i];
+                count = 1;
+            }
+            else if (nums[i] == card_num)
+            {
+                count++;
+            }
+            else
+            {
+                count--;
+            }
+        }
+        return card_num;
     }
 }
 // @lc code=end
