@@ -20,7 +20,25 @@ public class Solution
 {
     public ListNode RemoveElements(ListNode head, int val)
     {
+        var res = new ListNode(0);
+        res.next = head;
+        
+        var pre = res;
+        var cur = head;
+        while (cur != null)
+        {
+            if (cur.val == val)
+            {
+                pre.next = cur.next;
+            }
+            else
+            {
+                pre = cur;
+            }
+            cur = cur.next;
+        }
 
+        return res.next;
     }
 }
 // @lc code=end
