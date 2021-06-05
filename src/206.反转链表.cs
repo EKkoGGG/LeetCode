@@ -16,9 +16,10 @@
  *     }
  * }
  */
- using System.Collections;
+using System.Collections;
 public class Solution
 {
+    // 栈
     public ListNode ReverseList(ListNode head)
     {
         var st = new Stack<int>();
@@ -36,6 +37,35 @@ public class Solution
         }
         return head;
     }
+
+    // 迭代
+    public ListNode ReverseList(ListNode head)
+    {
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null)
+        {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+
+    // 递归
+    public ListNode ReverseList(ListNode head)
+    {
+        if (head == null || head.next == null)
+        {
+            return head;
+        }
+        ListNode p = ReverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
+    }
+
 }
 // @lc code=end
 
