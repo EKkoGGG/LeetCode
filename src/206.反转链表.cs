@@ -16,11 +16,25 @@
  *     }
  * }
  */
+ using System.Collections;
 public class Solution
 {
     public ListNode ReverseList(ListNode head)
     {
-
+        var st = new Stack<int>();
+        var cur = head;
+        while (cur != null)
+        {
+            st.Push(cur.val);
+            cur = cur.next;
+        }
+        cur = head;
+        while (cur != null)
+        {
+            cur.val = st.Pop();
+            cur = cur.next;
+        }
+        return head;
     }
 }
 // @lc code=end
