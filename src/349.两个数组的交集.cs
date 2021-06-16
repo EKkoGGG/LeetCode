@@ -1,7 +1,7 @@
 /*
  * @lc app=leetcode.cn id=349 lang=csharp
  *
- * [349] 两个数组的交集1
+ * [349] 两个数组的交集12
  */
 
 // @lc code=start
