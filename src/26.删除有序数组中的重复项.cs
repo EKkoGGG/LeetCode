@@ -13,13 +13,11 @@ public class Solution
         if (!nums.Any()) return 0;
         var head = nums[0];
         var index = 1;
-        var headIndex = 0;
         for (int i = 1; i < nums.Length; i++)
         {
             if (nums[i] != head)
             {
                 head = nums[i];
-                headIndex = i;
                 nums[index] = nums[i];
                 index++;
             }
