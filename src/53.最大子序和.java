@@ -6,8 +6,16 @@
 
 // @lc code=start
 class Solution {
-    public int maxSubArray(int[] nums) {
 
+    // 贪心
+    public int maxSubArray(int[] nums) {
+        int sum = 0;
+        int maxVal = nums[0];
+        for (int item : nums) {
+            sum = Math.max(item, sum + item);
+            maxVal = Math.max(maxVal, sum);
+        }
+        return maxVal;
     }
 }
 // @lc code=end
