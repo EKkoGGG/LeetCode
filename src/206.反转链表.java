@@ -16,13 +16,18 @@
  * }
  */
 class Solution {
+    // 迭代
     public ListNode reverseList(ListNode head) {
-        if (head == null) return null;
-        ListNode nextNode = head;
-        while (nextNode != null) {
-            
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null)
+        {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
-        return head;
+        return pre;
     }
 }
 // @lc code=end
