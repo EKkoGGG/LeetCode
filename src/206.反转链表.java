@@ -18,18 +18,16 @@
 class Solution {
     // 迭代
     public ListNode reverseList(ListNode head) {
-        ListNode pre = null;
         ListNode cur = head;
-        while (cur != null)
-        {
-            ListNode next = cur.next;
+        ListNode pre = null;
+        while (cur != null) {
+            ListNode nextNode = cur.next;
             cur.next = pre;
             pre = cur;
-            cur = next;
+            cur = nextNode;
         }
         return pre;
     }
-
     // 递归
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
@@ -38,7 +36,7 @@ class Solution {
         ListNode p = reverseList(head.next);
         head.next.next = head;
         head.next = null;
-        return p;
+        return
     }
 }
 // @lc code=end
