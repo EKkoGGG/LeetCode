@@ -36,7 +36,7 @@ class Solution {
         ListNode p = reverseList(head.next);
         head.next.next = head;
         head.next = null;
-        return
+        return p;
     }
 }
 // @lc code=end
