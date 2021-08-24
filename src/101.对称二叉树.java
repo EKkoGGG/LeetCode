@@ -27,19 +27,22 @@ class Solution {
     }
 
     public boolean check(TreeNode leftNode, TreeNode rightNode) {
-        if (leftNode == null && rightNode == null)
+        if (leftNode == null && rightNode == null) {
             return true;
-        if (leftNode == null || rightNode == null)
+        }
+        if (leftNode == null || rightNode == null) {
             return false;
-        return (leftNode.val == rightNode.val) 
+        }
+        return (leftNode.val == rightNode.val)
         && check(leftNode.left, rightNode.right)
         && check(leftNode.right, rightNode.left);
     }
 
     // 迭代
     public boolean isSymmetric(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return false;
+        }
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root.left);
         q.offer(root.right);
@@ -52,7 +55,9 @@ class Solution {
             if (left == null || right == null) {
                 return false;
             }
-            if (left.val != right.val) return false;
+            if (left.val != right.val) {
+                return false;
+            }
             q.offer(left.left);
             q.offer(right.right);
             q.offer(left.right);
